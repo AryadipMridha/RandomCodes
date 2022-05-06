@@ -1,0 +1,49 @@
+import java.util.Scanner;
+
+public class AgeValidator {
+private int age;// this instance variable and it will change ()s to ()s
+	public AgeValidator(int initialAge) //Parameterized constructor
+	{
+		
+		this.age=initialAge;		// This keyword initializes the the value of instance variable for this constructor
+	}
+	public void yearPasses()
+	{
+		age=age+1;
+	}
+	public void IamOld()
+	{
+		if (age<=0)
+		{age=0;
+		System.out.println("Age is not valid, Setting age to 0.");
+		System.out.print("You are young");}
+		else if (age<13) {
+		System.out.println("You are young.");}
+		else if (age >=13 && age<18) {
+		System.out.println("You are a teenanger.");}
+		else {
+		System.out.println("You are old");}
+	}
+	public static void main(String[] args) 
+	{
+		
+		Scanner obj=new Scanner(System.in);//obj is the object variable for STDIN
+		System.out.print("Enter the age :");
+		int UserAge=obj.nextInt(); //User entered this age stored here
+		for(int i=0;i<=UserAge;i++)
+		{
+		int age=obj.nextInt();
+		AgeValidator sc=new AgeValidator(age);/* sc object variable for AgeValidator constructor caller*/
+		sc.IamOld();//calling the instance method
+		for(int j=0;j<3;j++)
+		{//because the problem said to print it 3 times calculating the determining the age and its adjacent property
+			sc.yearPasses();//the age increments
+		}
+		sc.IamOld();//again ,matches the incremented age with criteria
+		System.out.println();// the empty line
+	}
+		obj.close();
+	}
+	
+}
+
